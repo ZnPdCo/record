@@ -1,0 +1,323 @@
+{
+  "contests": [
+    {
+      "date": "2026-06-25",
+      "name": "OIFC2026.6NOI赛前训练3",
+      "link": "https://www.xinyoudui.com/courses/2968/all/#/pages/96366",
+      "rank": 19,
+      "total": 50,
+      "totalScore": 140,
+      "expectedScore": 140,
+      "overallReview": "第一题做太久了，导致没怎么花时间在后面两题。怎么说呢，感觉第三题应当可以拿到更多分的，因为继续想下去肯定可以做到更多双射，得到 50 pts，进而第二部分获得更多分。\n\n然后晚上改题太腐败了，完全没在改题啊，应该先改第三题的。算了，反正这种题不改就不改，我都知道怎么一回事了，不改就不改，好心情最重要！",
+      "timeline": [
+        {
+          "time": "9:00",
+          "plan": "开始尝试写第一题",
+          "completion": "在思考的过程中发现性质，成功近似发现正解"
+        },
+        {
+          "time": "11:00",
+          "plan": "写完第一题",
+          "completion": "虽然确实写完了，但是最后写凸包时没太敢写，有时候要大胆一点，不然浪费了好多时间"
+        },
+        {
+          "time": "12:00",
+          "plan": "看第二题",
+          "completion": "这段时间都有点发呆，最后才意识到自己在发呆，发现第二题过于困难之后就去做第三题"
+        },
+        {
+          "time": "12:30",
+          "plan": "完成第三题的n^2",
+          "completion": "其实这里只要再观察一下就可以变成 O(n) 从而通过 Sub1"
+        },
+        {
+          "time": "12:50",
+          "plan": "急急忙忙去做第二题",
+          "completion": "最后就没有写完"
+        }
+      ],
+      "problems": [
+        {
+          "name": "音游",
+          "link": "https://www.xinyoudui.com/ac/contest/7450103E0000B9E08E7A1B/problem/45760",
+          "score": 100,
+          "expected": 100,
+          "fullScore": 100,
+          "difficulty": "省选/NOI−",
+          "tags": [
+            "DP",
+            "数据结构",
+            "贪心"
+          ],
+          "errorTypes": [
+            "实现bug"
+          ],
+          "isWeak": false,
+          "subScores": [
+            {
+              "actual": "",
+              "expected": "",
+              "full": "",
+              "desc": ""
+            }
+          ],
+          "notes": "感觉就是，要先尝试写一下代码，然后就会发现一些性质，发现性质之后，就会得到简单的形式。同时遇到问题时需要决策自己能不能调出来，调不出来果断写对拍，因为对拍有时候真的不难写。\n\n而且最后面的维护凸包写的有点慢了。前前后后11点才过",
+          "reflection": ""
+        },
+        {
+          "name": "最小公倍数",
+          "link": "https://www.xinyoudui.com/ac/contest/7450103E0000B9E08E7A1B/problem/45761",
+          "score": 4,
+          "expected": 4,
+          "fullScore": 100,
+          "difficulty": "NOI/NOI+/CTSC",
+          "tags": [
+            "数论",
+            "数学",
+            "莫反"
+          ],
+          "errorTypes": [
+            "时间不够"
+          ],
+          "isWeak": true,
+          "subScores": [
+            {
+              "actual": "",
+              "expected": "",
+              "full": "",
+              "desc": ""
+            }
+          ],
+          "notes": "没办法，我确实不会数论。\n\n但是真的没留够时间写暴力，这点有点错误了，预估的问题。主要还是因为第一题花了太多时间。",
+          "reflection": ""
+        },
+        {
+          "name": "树形",
+          "link": "https://www.xinyoudui.com/ac/contest/7450103E0000B9E08E7A1B/problem/45762",
+          "score": 36,
+          "expected": 50,
+          "fullScore": 100,
+          "difficulty": "NOI/NOI+/CTSC",
+          "tags": [
+            "DP",
+            "思维",
+            "双射",
+            "数学",
+            "多项式"
+          ],
+          "errorTypes": [
+            "看错题",
+            "算法不对"
+          ],
+          "isWeak": false,
+          "subScores": [
+            {
+              "actual": "",
+              "expected": "",
+              "full": "",
+              "desc": ""
+            }
+          ],
+          "notes": "完全没有往双射的角度想，忘了啊！怎么能忘了呢，因为前面看错了题，所以导致忘记第一时间双射，后面就忘了这回事。如果双射就会发现第二维状态不会太大，具体地，<=1\n\n想到这一点后sub2也可以直接计数了，然后据hjy说：\n\nlnw143: 06-25 20:44:12\n就你吧ntt里对数的操作等效换成结构体就好了\n\nlnw143: 06-25 20:44:23\n大概只有加法和数乘\n\nlnw143: 06-25 20:44:33\n其实不太是但是差不多\n\nlnw143: 06-25 20:44:57\n然后你发现本质4对一样的数\n\nlnw143: 06-25 20:45:07\n非常神秘\n\n但我晚上在摸鱼，没有写，今天效率虽然有点低，但人总不可能一直不腐败是吧，至少我知道这道题大致逻辑了，不写就不写了吧。",
+          "reflection": ""
+        }
+      ]
+    },
+    {
+      "name": "2026.06.24【NOI组】模拟赛",
+      "date": "2026-06-24",
+      "link": "https://gdnoj.com/gmoj/#contest/home/4636",
+      "encrypted": "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",
+      "iv": "3DkaoLeQfFye2bjH"
+    },
+    {
+      "date": "2026-06-23",
+      "name": "OIFC2026.6NOI赛前训练2",
+      "link": "https://www.xinyoudui.com/courses/2968/all/#/pages/96299",
+      "rank": 14,
+      "total": 50,
+      "totalScore": 200,
+      "expectedScore": 200,
+      "overallReview": "没啥问题，就是前面有点摆，注意力没太集中，写的有点慢了。",
+      "timeline": [
+        {
+          "time": "",
+          "plan": "",
+          "completion": ""
+        }
+      ],
+      "problems": [
+        {
+          "name": "超车",
+          "link": "https://www.xinyoudui.com/ac/contest/7450103B5000B9E08E408F/problem/45757",
+          "score": 100,
+          "expected": 100,
+          "fullScore": 100,
+          "difficulty": "提高+/省选−",
+          "tags": [
+            "模拟"
+          ],
+          "errorTypes": [],
+          "isWeak": false,
+          "subScores": [
+            {
+              "actual": "",
+              "expected": "",
+              "full": "",
+              "desc": ""
+            }
+          ],
+          "notes": "洛谷好像叫 wyb，我代码实现能力一向没有问题。",
+          "reflection": ""
+        },
+        {
+          "name": "放球",
+          "link": "https://www.xinyoudui.com/ac/contest/7450103B5000B9E08E408F/problem/45758",
+          "score": 75,
+          "expected": 75,
+          "fullScore": 100,
+          "difficulty": "省选/NOI−",
+          "tags": [
+            "DP",
+            "数学"
+          ],
+          "errorTypes": [],
+          "isWeak": false,
+          "subScores": [
+            {
+              "actual": "75",
+              "expected": "75",
+              "full": "75",
+              "desc": ""
+            }
+          ],
+          "notes": "有点失败，没能够想到拆成钦定，然后二项式反演即可，概率也是可以从恰好拆成至少的！用到的是拒绝采样的想法，如果某一次选择了钦定外的元素，就当作什么都没有发生，那么概率就相当于只和钦定比它慢的有关，于是可以拆。",
+          "reflection": ""
+        },
+        {
+          "name": "建树",
+          "link": "https://www.xinyoudui.com/ac/contest/7450103B5000B9E08E408F/problem/45759",
+          "score": 25,
+          "expected": 25,
+          "fullScore": 25,
+          "difficulty": "NOI/NOI+/CTSC",
+          "tags": [
+            "数据结构",
+            "贪心"
+          ],
+          "errorTypes": [],
+          "isWeak": false,
+          "subScores": [
+            {
+              "actual": "25",
+              "expected": "25",
+              "full": "25",
+              "desc": ""
+            }
+          ],
+          "notes": "神题，太牛了，洛谷应该叫 P10770 「CROI · R2」夏风与树。",
+          "reflection": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-06-22",
+      "name": "OIFC2026.6NOI赛前训练1",
+      "link": "https://www.xinyoudui.com/courses/2968/all/#/pages/96294",
+      "rank": 46,
+      "total": 57,
+      "totalScore": 123,
+      "expectedScore": 123,
+      "overallReview": "感觉这一场就是，全程冲 t3 啊，如果能够回去看一下 t1 t2 早就 200pts 了，但是就是冲 t3，那过了又如何呢？",
+      "timeline": [
+        {
+          "time": "",
+          "plan": "",
+          "completion": ""
+        }
+      ],
+      "problems": [
+        {
+          "name": "永除塔扉",
+          "link": "https://www.xinyoudui.com/ac/contest/745010385000B9E08E4054/problem/45756",
+          "score": 15,
+          "expected": 15,
+          "fullScore": 100,
+          "difficulty": "普及+/提高",
+          "tags": [
+            "贪心",
+            "博弈论",
+            "性质"
+          ],
+          "errorTypes": [],
+          "isWeak": false,
+          "subScores": [
+            {
+              "actual": "15",
+              "expected": "15",
+              "full": "15",
+              "desc": ""
+            },
+            {
+              "actual": "0",
+              "expected": "25",
+              "full": "25",
+              "desc": "n=m的性质，时间不够没有想到"
+            }
+          ],
+          "notes": "感觉直接推一推最后就可以发现了，从 n=m 入手即可。开始做就很简单了。\n\n就是时间不够导致的",
+          "reflection": ""
+        },
+        {
+          "name": "解离法",
+          "link": "https://www.xinyoudui.com/ac/contest/745010385000B9E08E4054/problem/45755",
+          "score": 8,
+          "expected": 8,
+          "fullScore": 100,
+          "difficulty": "普及+/提高",
+          "tags": [
+            "DP"
+          ],
+          "errorTypes": [],
+          "isWeak": false,
+          "subScores": [
+            {
+              "actual": "",
+              "expected": "",
+              "full": "",
+              "desc": ""
+            }
+          ],
+          "notes": "感觉也是打打表就可以发现了，虽然证明有点难。再说了，就算不会，套一个 DFA 也可以做啊！怎么没想到。",
+          "reflection": ""
+        },
+        {
+          "name": "风结",
+          "link": "https://www.xinyoudui.com/ac/contest/745010385000B9E08E4054/problem/45754",
+          "score": 100,
+          "expected": 100,
+          "fullScore": 100,
+          "difficulty": "NOI/NOI+/CTSC",
+          "tags": [
+            "图论",
+            "DAG 链剖分"
+          ],
+          "errorTypes": [],
+          "isWeak": false,
+          "subScores": [
+            {
+              "actual": "100",
+              "expected": "100",
+              "full": "100",
+              "desc": ""
+            }
+          ],
+          "notes": "板子题，但是写的有点久了。很多地方倍增都可以写的更简单。",
+          "reflection": ""
+        }
+      ]
+    }
+  ],
+  "verifier": "249d304d8a6a6e602d4b94a3591a9d58547d4b0a3293be03b2f009ee2c50a94b",
+  "salt": "HEEnLs1WSZcNO43QUilfvA=="
+}

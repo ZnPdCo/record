@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OI 比赛档案</title>
+<style>
+* { box-sizing: border-box; margin: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; color: #333; padding: 20px; }
+.container { max-width: 960px; margin: 0 auto; }
+.header { margin-bottom: 20px; }
+.header h1 { font-size: 22px; margin-bottom: 8px; }
+.header .sub { font-size: 13px; color: #888; display: flex; align-items: center; gap: 8px; }
+.header .sub a { color: #3498db; text-decoration: none; }
+.header .sub a:hover { text-decoration: underline; }
+.lock-badge { display: inline-block; padding: 1px 8px; border-radius: 8px; font-size: 11px; font-weight: 600; }
+
+.year-filter { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+.year-btn { padding: 5px 14px; border: 1px solid #ccc; border-radius: 14px; cursor: pointer; font-size: 13px; background: #fff; }
+.year-btn:hover { background: #f0f7ff; border-color: #3498db; }
+.year-btn.active { background: #3498db; color: #fff; border-color: #3498db; }
+
+.stats { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.stat-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 14px 18px; flex: 1; min-width: 140px; }
+.stat-card .num { font-size: 24px; font-weight: 700; }
+.stat-card .lbl { font-size: 12px; color: #888; margin-top: 2px; }
+.stat-card .items { font-size: 13px; margin-top: 6px; }
+.stat-card .items .item { display: inline-flex; align-items: center; gap: 4px; margin: 2px 6px 2px 0; }
+
+.contest-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 12px; overflow: hidden; }
+.contest-header { padding: 12px 16px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+.contest-header:hover { background: #fafafa; }
+.contest-header .left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.contest-header .date { font-weight: 700; font-size: 15px; color: #555; min-width: 90px; }
+.contest-header .name { font-size: 15px; }
+.contest-header .meta { font-size: 12px; color: #888; display: flex; gap: 12px; }
+.contest-header .arrow { font-size: 12px; color: #aaa; transition: transform 0.2s; }
+.contest-header .arrow.open { transform: rotate(90deg); }
+.contest-header .enc-badge { display: inline-block; font-size: 11px; color: #888; }
+
+.contest-body { padding: 16px; border-top: 1px solid #eee; display: none; }
+.contest-body.open { display: block; }
+.contest-body .locked-msg { text-align: center; padding: 20px; color: #999; font-size: 13px; }
+
+.review-block { margin-bottom: 16px; }
+.review-block h4 { font-size: 13px; color: #555; margin-bottom: 4px; }
+.review-block p { font-size: 13px; line-height: 1.6; white-space: pre-wrap; }
+
+.timeline-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
+.timeline-table th { background: #f9f9f9; padding: 6px 10px; text-align: left; font-weight: 600; color: #555; border: 1px solid #eee; }
+.timeline-table td { padding: 5px 10px; border: 1px solid #eee; }
+.timeline-table td:first-child { white-space: nowrap; font-weight: 600; color: #555; }
+
+.problem-block { margin-bottom: 14px; padding: 12px; background: #fafafa; border: 1px solid #eee; border-radius: 6px; }
+.problem-block:last-child { margin-bottom: 0; }
+.problem-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.problem-head .p-name { font-size: 14px; font-weight: 600; }
+.problem-head .p-name a { color: #3498db; text-decoration: none; }
+.problem-head .p-name a:hover { text-decoration: underline; }
+.problem-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 12px; }
+.problem-meta .score { font-weight: 600; }
+.diff-badge { display: inline-block; padding: 1px 8px; border-radius: 9px; font-size: 11px; font-weight: 600; }
+.tag-badge { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 11px; background: #eef0f7; color: #445; margin: 1px; }
+.err-badge { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 11px; background: #fde8e8; color: #944; margin: 1px; }
+.weak-star { color: #f39c12; font-size: 14px; }
+
+.subscore-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 12px; }
+.subscore-table th { background: #f0f0f0; padding: 3px 6px; text-align: left; font-weight: 600; color: #555; border: 1px solid #e0e0e0; }
+.subscore-table td { padding: 3px 6px; border: 1px solid #e0e0e0; }
+.problem-text { font-size: 12px; color: #555; margin-top: 4px; white-space: pre-wrap; }
+.problem-text strong { color: #333; }
+
+.btn { display: inline-flex; align-items: center; gap: 4px; padding: 5px 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; font-family: inherit; }
+.btn-primary { background: #3498db; color: #fff; }
+.btn-primary:hover { background: #2980b9; }
+.btn-outline { background: #fff; border: 1px solid #ccc; color: #555; }
+.btn-outline:hover { background: #f5f5f5; }
+.btn-sm { padding: 3px 8px; font-size: 11px; }
+
+.toast { position: fixed; bottom: 20px; right: 20px; background: #27ae60; color: #fff; padding: 10px 16px; border-radius: 6px; font-size: 13px; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; }
+
+.empty-state { text-align: center; padding: 60px 20px; color: #999; }
+.empty-state p { font-size: 14px; }
+.empty-state a { color: #3498db; }
+
+/* Password modal */
+.password-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.password-modal { background: #fff; border-radius: 12px; padding: 32px; width: 360px; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+.password-modal h3 { font-size: 18px; margin-bottom: 8px; }
+.password-modal p { font-size: 13px; color: #888; margin-bottom: 16px; }
+.password-modal input[type="password"] { width: 100%; padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; }
+.password-modal input[type="password"]:focus { outline: none; border-color: #3498db; box-shadow: 0 0 0 2px rgba(52,152,219,0.15); }
+.password-modal .error-msg { color: #e74c3c; font-size: 12px; margin-top: 6px; display: none; }
+.password-modal .actions { display: flex; gap: 8px; margin-top: 16px; }
+.password-modal .actions .btn { flex: 1; padding: 9px; font-size: 14px; justify-content: center; }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>OI 比赛档案</h1>
+        <div class="sub">
+            <a href="edit.html">编辑</a>
+            <span id="lock-status" style="display:none;cursor:pointer;" onclick="showPasswordModal()" title="点击输入密码"></span>
+        </div>
+    </div>
+
+    <div class="year-filter" id="year-filter"></div>
+    <div class="stats" id="stats-area"></div>
+    <div id="contest-list"></div>
+    <div class="empty-state" id="loading-state"><p>加载中...</p></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- Password Modal -->
+<div class="password-overlay" id="password-modal" style="display:none;">
+    <div class="password-modal">
+        <h3>输入密码</h3>
+        <p>部分比赛已加密，输入密码后可查看完整内容</p>
+        <input type="password" id="password-input" placeholder="请输入密码" onkeydown="if(event.key==='Enter')submitPassword()">
+        <div class="error-msg" id="password-error">密码错误</div>
+        <div class="actions">
+            <button class="btn btn-primary" onclick="submitPassword()">确定</button>
+            <button class="btn btn-outline" onclick="cancelPassword()">取消</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// ==================== Difficulty Config ====================
+var diffColors = {
+    '暂无评定':     { color: 'rgb(191, 191, 191)' },
+    '入门':         { color: 'rgb(254, 76, 97)' },
+    '普及−':        { color: 'rgb(243, 156, 17)' },
+    '普及/提高−':   { color: 'rgb(255, 193, 22)' },
+    '普及+/提高':   { color: 'rgb(82, 196, 26)' },
+    '提高+/省选−':  { color: 'rgb(52, 152, 219)' },
+    '省选/NOI−':    { color: 'rgb(157, 61, 207)' },
+    'NOI/NOI+/CTSC':{ color: 'rgb(14, 29, 105)' }
+};
+
+// ==================== Crypto ====================
+var PBKDF2_ITERATIONS = 600000;
+var storedVerifier = null;
+var storedSalt = null;
+var decrypted = false;
+
+async function sha256Bytes(str) {
+    return new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)));
+}
+
+function hex(b) {
+    return Array.from(b).map(function(x) { return x.toString(16).padStart(2,'0'); }).join('');
+}
+
+function b64(b) {
+    return btoa(String.fromCharCode(...b));
+}
+
+function fromB64(s) {
+    return Uint8Array.from(atob(s), function(c) { return c.charCodeAt(0); });
+}
+
+async function pbkdf2(pw, salt, len) {
+    var key = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveBits']);
+    return new Uint8Array(await crypto.subtle.deriveBits(
+        { name: 'PBKDF2', salt: salt, iterations: PBKDF2_ITERATIONS, hash: 'SHA-256' },
+        key, len * 8
+    ));
+}
+
+async function getVerifier(password, salt) {
+    if (salt) return hex(await pbkdf2(password, new TextEncoder().encode(salt), 32));
+    return hex(await sha256Bytes(password + ':v'));
+}
+
+async function deriveKey(password, salt) {
+    if (salt) {
+        var h = await pbkdf2(password, new TextEncoder().encode(salt + ':k'), 32);
+        return await crypto.subtle.importKey('raw', h, { name: 'AES-GCM' }, false, ['decrypt']);
+    }
+    var h = await sha256Bytes(password + ':k');
+    return await crypto.subtle.importKey('raw', h, { name: 'AES-GCM' }, false, ['decrypt']);
+}
+
+async function encryptContest(data, password) {
+    var key = await deriveKey(password);
+    var iv = crypto.getRandomValues(new Uint8Array(12));
+    var enc = await crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, new TextEncoder().encode(JSON.stringify(data)));
+    return { iv: b64(iv), encrypted: b64(new Uint8Array(enc)) };
+}
+
+async function decryptContest(enc, iv, password) {
+    var key = await deriveKey(password);
+    var d = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: fromB64(iv) }, key, fromB64(enc));
+    return JSON.parse(new TextDecoder().decode(d));
+}
+
+function getStoredAuth() {
+    try {
+        var raw = localStorage.getItem('oi_archive_key');
+        return raw ? JSON.parse(raw) : null;
+    } catch(e) { return null; }
+}
+
+function setStoredAuth(verifier, keyB64) {
+    try { localStorage.setItem('oi_archive_key', JSON.stringify({ verifier: verifier, key: keyB64 })); } catch(e) {}
+}
+
+function clearStoredAuth() {
+    try { localStorage.removeItem('oi_archive_key'); } catch(e) {}
+}
+
+// ==================== Data ====================
+var allContests = [];
+var currentYear = '全部';
+
+tryDataLoad();
+
+function tryDataLoad() {
+    fetch('data.json?t=' + Date.now())
+        .then(function(r) { return r.json(); })
+        .then(function(d) {
+            storedVerifier = d.verifier || null;
+            storedSalt = d.salt || null;
+            allContests = d.contests || [];
+
+            if (storedVerifier) {
+                var auth = getStoredAuth();
+                if (auth && auth.verifier === storedVerifier) {
+                    decryptAll(auth.key).then(function(ok) {
+                        if (ok) { decrypted = true; }
+                        render();
+                    });
+                } else {
+                    render();
+                }
+            } else {
+                render();
+            }
+        })
+        .catch(function() { render(); });
+}
+
+async function decryptAll(keyB64) {
+    try {
+        var keyBytes = fromB64(keyB64);
+        var key = await crypto.subtle.importKey('raw', keyBytes, { name: 'AES-GCM' }, false, ['decrypt']);
+        
+        var allOk = true;
+        for (var i = 0; i < allContests.length; i++) {
+            var c = allContests[i];
+            if (c.encrypted && c.iv) {
+                try {
+                    var iv = fromB64(c.iv);
+                    var enc = fromB64(c.encrypted);
+                    var d = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, key, enc);
+                    var dec = JSON.parse(new TextDecoder().decode(d));
+                    // Merge decrypted fields into the contest object
+                    for (var k in dec) {
+                        if (dec.hasOwnProperty(k)) c[k] = dec[k];
+                    }
+                    delete c.encrypted;
+                    delete c.iv;
+                } catch(e) {
+                    allOk = false;
+                }
+            }
+        }
+        return allOk;
+    } catch(e) { return false; }
+}
+
+// ==================== Password Modal ====================
+async function submitPassword() {
+    var input = document.getElementById('password-input');
+    var pw = input.value.trim();
+    if (!pw) return;
+    
+    var v = await getVerifier(pw, storedSalt);
+    if (v !== storedVerifier) {
+        document.getElementById('password-error').style.display = '';
+        input.value = '';
+        input.focus();
+        return;
+    }
+    
+    // Password correct, derive and store key
+    var keyHash = storedSalt
+        ? await pbkdf2(pw, new TextEncoder().encode(storedSalt + ':k'), 32)
+        : await sha256Bytes(pw + ':k');
+    var keyB64 = b64(keyHash);
+    setStoredAuth(storedVerifier, keyB64);
+    
+    await decryptAll(keyB64);
+    decrypted = true;
+    document.getElementById('password-modal').style.display = 'none';
+    render();
+}
+
+function showPasswordModal() {
+    if (decrypted || !storedVerifier) return;
+    document.getElementById('password-modal').style.display = '';
+    document.getElementById('password-input').value = '';
+    document.getElementById('password-error').style.display = 'none';
+    document.getElementById('password-input').focus();
+}
+
+function cancelPassword() {
+    document.getElementById('password-modal').style.display = 'none';
+}
+
+// ==================== Render ====================
+function render() {
+    renderLockStatus();
+    renderYearFilter();
+    renderStats();
+    renderList();
+}
+
+function renderLockStatus() {
+    var el = document.getElementById('lock-status');
+    if (!storedVerifier) { el.style.display = 'none'; return; }
+    el.style.display = '';
+    el.textContent = decrypted ? '🔓 已解锁' : '🔒 已锁定';
+    el.style.color = decrypted ? '#27ae60' : '#e67e22';
+}
+
+function getFiltered() {
+    if (currentYear === '全部') return allContests;
+    return allContests.filter(function(c) { return c.date && c.date.substring(0, 4) === currentYear; });
+}
+
+function getYears() {
+    var years = {};
+    allContests.forEach(function(c) {
+        if (c.date && c.date.length >= 4) years[c.date.substring(0, 4)] = true;
+    });
+    return Object.keys(years).sort();
+}
+
+function isEncryptedContest(c) {
+    return !decrypted && storedVerifier && c.encrypted;
+}
+
+// ==================== Year Filter ====================
+function renderYearFilter() {
+    var el = document.getElementById('year-filter');
+    var years = getYears();
+    var html = '<span class="year-btn' + (currentYear === '全部' ? ' active' : '') + '" onclick="setYear(\'全部\')">全部</span>';
+    years.forEach(function(y) {
+        html += '<span class="year-btn' + (currentYear === y ? ' active' : '') + '" onclick="setYear(\'' + y + '\')">' + y + '</span>';
+    });
+    el.innerHTML = html;
+}
+
+function setYear(y) {
+    currentYear = y;
+    renderYearFilter();
+    renderStats();
+    renderList();
+}
+
+// ==================== Stats ====================
+function renderStats() {
+    var el = document.getElementById('stats-area');
+    var filtered = getFiltered();
+
+    // For stats, only include decrypted or non-encrypted contests
+    var statContests = filtered.filter(function(c) { return !isEncryptedContest(c); });
+    var contestCount = filtered.length; // count all contests (even encrypted ones)
+
+    var weakMap = {};
+    statContests.forEach(function(c) {
+        (c.problems || []).forEach(function(p) {
+            if (p.isWeak) {
+                (p.tags || []).forEach(function(t) {
+                    weakMap[t] = (weakMap[t] || 0) + 1;
+                });
+            }
+        });
+    });
+    var weakItems = Object.entries(weakMap).filter(function(e) { return e[1] >= 2; }).sort(function(a,b) { return b[1]-a[1]; });
+
+    var errMap = {};
+    statContests.forEach(function(c) {
+        (c.problems || []).forEach(function(p) {
+            (p.errorTypes || []).forEach(function(e) {
+                errMap[e] = (errMap[e] || 0) + 1;
+            });
+        });
+    });
+    var errItems = Object.entries(errMap).sort(function(a,b) { return b[1]-a[1]; });
+
+    var html = '';
+    html += '<div class="stat-card"><div class="num">' + contestCount + '</div><div class="lbl">参赛次数</div></div>';
+
+    html += '<div class="stat-card"><div class="lbl">薄弱知识点</div><div class="items">';
+    if (!decrypted && storedVerifier) {
+        html += '<span style="color:#999;">解锁后显示</span>';
+    } else if (weakItems.length === 0) {
+        html += '<span style="color:#999;">暂无</span>';
+    } else {
+        weakItems.forEach(function(e) {
+            html += '<span class="item">' + escHtml(e[0]) + ' <span style="color:#e74c3c;font-weight:600;">' + e[1] + '</span></span>';
+        });
+    }
+    html += '</div></div>';
+
+    html += '<div class="stat-card"><div class="lbl">错误类型统计</div><div class="items">';
+    if (!decrypted && storedVerifier) {
+        html += '<span style="color:#999;">解锁后显示</span>';
+    } else if (errItems.length === 0) {
+        html += '<span style="color:#999;">暂无</span>';
+    } else {
+        errItems.forEach(function(e) {
+            html += '<span class="item">' + escHtml(e[0]) + ' <span style="color:#e74c3c;font-weight:600;">' + e[1] + '</span></span>';
+        });
+    }
+    html += '</div></div>';
+
+    el.innerHTML = html;
+}
+
+// ==================== Contest List ====================
+function renderList() {
+    var el = document.getElementById('contest-list');
+    var filtered = getFiltered();
+
+    if (filtered.length === 0) {
+        el.innerHTML = '<div class="empty-state"><p>暂无比赛记录</p></div>';
+        document.getElementById('loading-state').innerHTML = '';
+        return;
+    }
+    document.getElementById('loading-state').innerHTML = '';
+
+    var html = '';
+    filtered.forEach(function(c, idx) {
+        html += contestCardHTML(c, idx);
+    });
+    el.innerHTML = html;
+}
+
+function contestCardHTML(c, idx) {
+    var encrypted = isEncryptedContest(c);
+    var rankStr = '';
+    if (!encrypted && (c.rank || c.total)) rankStr = (c.rank || '?') + '/' + (c.total || '?');
+    var scoreStr = '';
+    if (!encrypted && (c.totalScore || c.expectedScore)) scoreStr = (c.totalScore || 0) + '/' + (c.expectedScore || 0);
+
+    var html = '<div class="contest-card">';
+    html += '<div class="contest-header" onclick="toggleCard(this)">';
+    html += '<div class="left">';
+    html += '<span class="date">' + escHtml(c.date || '') + '</span>';
+    html += '<span class="name">' + escHtml(c.name || '未命名') + '</span>';
+    if (encrypted) html += '<span class="enc-badge">🔒</span>';
+    if (scoreStr) html += '<span class="meta">得分 ' + scoreStr + '</span>';
+    if (rankStr) html += '<span class="meta">排名 ' + rankStr + '</span>';
+    html += '</div>';
+    html += '<span class="arrow">▶</span>';
+    html += '</div>';
+    html += '<div class="contest-body">';
+
+    if (encrypted) {
+        html += '<div class="locked-msg">🔒 此比赛已加密，输入密码后可查看详情</div>';
+    } else {
+        // Overall review
+        if (c.overallReview) {
+            html += '<div class="review-block"><h4>总体回顾</h4><p>' + escHtml(c.overallReview) + '</p></div>';
+        }
+
+        // Timeline
+        if (c.timeline && c.timeline.length > 0 && c.timeline[0].time) {
+            html += '<h4 style="font-size:13px;color:#555;margin-bottom:4px;">时间线</h4>';
+            html += '<table class="timeline-table"><thead><tr><th>时间</th><th>计划</th><th>完成情况</th></tr></thead><tbody>';
+            c.timeline.forEach(function(t) {
+                html += '<tr><td>' + escHtml(t.time) + '</td><td>' + escHtml(t.plan) + '</td><td>' + escHtml(t.completion).replace(/\n/g,'<br>') + '</td></tr>';
+            });
+            html += '</tbody></table>';
+        }
+
+        // Problems
+        if (c.problems && c.problems.length > 0) {
+            c.problems.forEach(function(p, pi) {
+                html += problemBlockHTML(p, pi);
+            });
+        }
+
+    }
+
+    html += '</div></div>';
+    return html;
+}
+
+function problemBlockHTML(p, idx) {
+    var html = '<div class="problem-block">';
+    html += '<div class="problem-head">';
+    var name = p.link ? '<a href="' + escAttr(p.link) + '" target="_blank">' + escHtml(p.name) + '</a>' : escHtml(p.name);
+    html += '<span class="p-name">' + name + '</span>';
+    if (p.isWeak) html += '<span class="weak-star">⭐</span>';
+    html += '</div>';
+
+    html += '<div class="problem-meta">';
+    if (p.score !== undefined || p.fullScore) html += '<span class="score">' + (p.score || 0) + '/' + (p.fullScore || '?') + '</span>';
+    if (p.difficulty) {
+        var dc = diffColors[p.difficulty] || {color:'#999'};
+        html += '<span class="diff-badge" style="background:' + dc.color + '20;color:' + dc.color + ';border:1px solid ' + dc.color + '40;">' + p.difficulty + '</span>';
+    }
+    (p.tags || []).forEach(function(t) { html += '<span class="tag-badge">' + escHtml(t) + '</span>'; });
+    (p.errorTypes || []).forEach(function(e) { html += '<span class="err-badge">' + escHtml(e) + '</span>'; });
+    html += '</div>';
+
+    if (p.subScores && p.subScores.length > 0 && p.subScores[0].full !== '') {
+        html += '<table class="subscore-table"><thead><tr><th>实际</th><th>预期</th><th>满分</th><th>描述</th></tr></thead><tbody>';
+        p.subScores.forEach(function(s) {
+            if (s.full !== '' || s.desc) {
+                html += '<tr><td>' + escHtml(s.actual) + '</td><td>' + escHtml(s.expected) + '</td><td>' + escHtml(s.full) + '</td><td>' + escHtml(s.desc) + '</td></tr>';
+            }
+        });
+        html += '</tbody></table>';
+    }
+
+    if (p.notes) html += '<div class="problem-text"><strong>数据、探索和反思：</strong><br>' + escHtml(p.notes) + '</div>';
+    if (p.reflection) html += '<div class="problem-text"><strong>其他情况：</strong><br>' + escHtml(p.reflection) + '</div>';
+
+    html += '</div>';
+    return html;
+}
+
+// ==================== Card Toggle ====================
+function toggleCard(header) {
+    var body = header.nextElementSibling;
+    body.classList.toggle('open');
+    header.querySelector('.arrow').classList.toggle('open');
+}
+
+// ==================== MD Export ====================
+// ==================== Helpers ====================
+function escHtml(s) {
+    if (!s) return '';
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function escAttr(s) {
+    if (!s) return '';
+    return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function escMd(s) {
+    if (!s) return '';
+    return String(s).replace(/\|/g, '\\|');
+}
+
+function escMdText(s) {
+    if (!s) return '';
+    return String(s).replace(/\|/g, '\\|').replace(/\[/g, '\\[').replace(/\]/g, '\\]');
+}
+
+function showToast(msg, isError) {
+    var toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.style.background = isError ? '#e74c3c' : '#27ae60';
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 2500);
+}
+</script>
+</body>
+</html>
