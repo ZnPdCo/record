@@ -26,12 +26,10 @@
     <div class="main" v-if="currentIdx >= 0 && currentContest">
       <SuiForm>
         <SuiSegment>
-          <SuiHeader dividing style="margin-top:0;">
-            比赛信息
-            <template #right>
-              <SuiButton negative size="mini" @click="deleteContest">删除</SuiButton>
-            </template>
-          </SuiHeader>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(34,36,38,.15);padding-bottom:.714rem;margin-bottom:.714rem;">
+            <span style="font-size:1.5rem;font-weight:700;">比赛信息</span>
+            <SuiButton negative size="mini" type="button" @click="deleteContest">删除</SuiButton>
+          </div>
           <SuiFormGroup widths="equal">
             <SuiFormField label="比赛名称" v-model="currentContest.name" />
             <SuiFormField label="比赛日期" v-model="currentContest.date" placeholder="2025-06-25" />
@@ -168,7 +166,7 @@
                 <div style="position:relative;flex:1;">
                   <input type="text" placeholder="添加预设" class="preset-autocomplete"
                     @focus="openProblemRefInput(pi)" @blur="setTimeout(function(){ closeProblemRefInput(pi) }, 200)"
-                    @input="filterProblemPresets(pi, $event)" @keydown.enter.prevent="addProblemReflection(pi)">
+                    :value="problemRefFilter[pi] || ''" @input="filterProblemPresets(pi, $event)" @keydown.enter.prevent="addProblemReflection(pi)">
                   <div v-if="problemRefShow[pi] && filteredProblemPresets(pi).length" class="preset-dropdown">
                     <div v-for="p2 in filteredProblemPresets(pi)" :key="p2" class="preset-dropdown-item" @mousedown.prevent="addProblemReflection(pi, p2)">{{ p2 }}</div>
                   </div>
@@ -255,7 +253,7 @@ function filterContestPresets() {
 
 function addContestReflection(preset) {
   if (!currentContest.value) return
-  if (!preset) {
+  if (typeof preset !== 'string' || !preset) {
     var input = contestRefInput.value
     if (!input) return
     preset = input.value.trim()
