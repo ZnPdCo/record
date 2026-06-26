@@ -238,7 +238,7 @@
           "link": "https://gdnoj.com/gmoj/#main/show/8983",
           "score": 10,
           "expected": 10,
-          "fullScore": 10,
+          "fullScore": 100,
           "difficulty": "NOI/NOI+/CTSC",
           "tags": [
             "DP",
@@ -354,7 +354,7 @@
           "link": "https://www.xinyoudui.com/ac/contest/7450103B5000B9E08E408F/problem/45759",
           "score": 25,
           "expected": 25,
-          "fullScore": 25,
+          "fullScore": 100,
           "difficulty": "NOI/NOI+/CTSC",
           "tags": [
             "数据结构",
