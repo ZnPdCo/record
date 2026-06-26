@@ -1,6 +1,50 @@
 {
   "contests": [
     {
+      "date": "2026-06-26",
+      "name": "2026年6月26日杂题选讲",
+      "link": "https://vjudge.net/contest/825475",
+      "rank": 0,
+      "total": 0,
+      "totalScore": 0,
+      "overallReview": "今天不知道怎么回事，还是在一直在腐败！内心有点浮躁了，有点不高兴，注意力不怎么集中。\n\n真的是，气死我了。",
+      "reflections": [
+        {
+          "name": "发呆",
+          "rating": "unsure"
+        }
+      ],
+      "timeline": [
+        {
+          "time": "",
+          "plan": "",
+          "completion": ""
+        }
+      ],
+      "problems": [
+        {
+          "name": "#5425. Proposition Composition",
+          "link": "https://qoj.ac/problem/5425/statement/zh_cn",
+          "score": 0,
+          "fullScore": 0,
+          "difficulty": "NOI/NOI+/CTSC",
+          "tags": [],
+          "reflections": [],
+          "isWeak": false,
+          "fixed": "no",
+          "subScores": [
+            {
+              "actual": "",
+              "expected": "",
+              "full": "",
+              "desc": ""
+            }
+          ],
+          "notes": ""
+        }
+      ]
+    },
+    {
       "date": "2026-06-25",
       "name": "OIFC2026.6NOI赛前训练3",
       "link": "https://www.xinyoudui.com/courses/2968/all/#/pages/96366",
