@@ -5,6 +5,8 @@ export var contestReflections = [
   '放弃不及时',
   '前期节奏过慢',
   '时间分配不合理',
+  '不敢冲/缺乏自信',
+  '急于写题',
 ]
 
 export var problemReflections = [
@@ -20,6 +22,7 @@ export var problemReflections = [
   '代码实现速度慢',
   '单题投入过久',
   '低估难度',
+  '猜测/大胆假设能力不足',
 ]
 
 export var ratingColors = {
