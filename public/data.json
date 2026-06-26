@@ -1,6 +1,24 @@
 {
   "contests": [
     {
+      "date": "",
+      "name": "",
+      "link": "测试",
+      "rank": 0,
+      "total": 0,
+      "totalScore": 0,
+      "overallReview": "",
+      "reflections": [],
+      "timeline": [
+        {
+          "time": "",
+          "plan": "",
+          "completion": ""
+        }
+      ],
+      "problems": []
+    },
+    {
       "date": "2026-06-25",
       "name": "OIFC2026.6NOI赛前训练3",
       "link": "https://www.xinyoudui.com/courses/2968/all/#/pages/96366",
