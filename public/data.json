@@ -49,9 +49,6 @@
             "数据结构",
             "贪心"
           ],
-          "errorTypes": [
-            "实现bug"
-          ],
           "isWeak": false,
           "subScores": [
             {
@@ -62,7 +59,17 @@
             }
           ],
           "notes": "感觉就是，要先尝试写一下代码，然后就会发现一些性质，发现性质之后，就会得到简单的形式。同时遇到问题时需要决策自己能不能调出来，调不出来果断写对拍，因为对拍有时候真的不难写。\n\n而且最后面的维护凸包写的有点慢了。前前后后11点才过",
-          "reflection": ""
+          "reflections": [
+            {
+              "name": "边界情况没考虑到",
+              "rating": "unsure"
+            },
+            {
+              "name": "代码实现速度慢",
+              "rating": "not_worth"
+            }
+          ],
+          "fixed": "full"
         },
         {
           "name": "最小公倍数",
@@ -76,9 +83,6 @@
             "数学",
             "莫反"
           ],
-          "errorTypes": [
-            "时间不够"
-          ],
           "isWeak": true,
           "subScores": [
             {
@@ -89,7 +93,13 @@
             }
           ],
           "notes": "没办法，我确实不会数论。\n\n但是真的没留够时间写暴力，这点有点错误了，预估的问题。主要还是因为第一题花了太多时间。",
-          "reflection": ""
+          "reflections": [
+            {
+              "name": "数学推导不足",
+              "rating": "worth"
+            }
+          ],
+          "fixed": "no"
         },
         {
           "name": "树形",
@@ -105,10 +115,6 @@
             "数学",
             "多项式"
           ],
-          "errorTypes": [
-            "看错题",
-            "算法不对"
-          ],
           "isWeak": false,
           "subScores": [
             {
@@ -119,16 +125,155 @@
             }
           ],
           "notes": "完全没有往双射的角度想，忘了啊！怎么能忘了呢，因为前面看错了题，所以导致忘记第一时间双射，后面就忘了这回事。如果双射就会发现第二维状态不会太大，具体地，<=1\n\n想到这一点后sub2也可以直接计数了，然后据hjy说：\n\nlnw143: 06-25 20:44:12\n就你吧ntt里对数的操作等效换成结构体就好了\n\nlnw143: 06-25 20:44:23\n大概只有加法和数乘\n\nlnw143: 06-25 20:44:33\n其实不太是但是差不多\n\nlnw143: 06-25 20:44:57\n然后你发现本质4对一样的数\n\nlnw143: 06-25 20:45:07\n非常神秘\n\n但我晚上在摸鱼，没有写，今天效率虽然有点低，但人总不可能一直不腐败是吧，至少我知道这道题大致逻辑了，不写就不写了吧。",
-          "reflection": ""
+          "reflections": [
+            {
+              "name": "思路方向错误",
+              "rating": "not_worth"
+            },
+            {
+              "name": "题意/审题偏差",
+              "rating": "not_worth"
+            },
+            {
+              "name": "算法不对",
+              "rating": "unsure"
+            }
+          ],
+          "fixed": "no"
+        }
+      ],
+      "reflections": [
+        {
+          "name": "单题投入过久",
+          "rating": "worth"
+        },
+        {
+          "name": "前期节奏过慢",
+          "rating": "not_worth"
+        },
+        {
+          "name": "时间分配不合理",
+          "rating": "not_worth"
         }
       ]
     },
     {
-      "name": "2026.06.24【NOI组】模拟赛",
       "date": "2026-06-24",
+      "name": "2026.06.24【NOI组】模拟赛",
       "link": "https://gdnoj.com/gmoj/#contest/home/4636",
-      "encrypted": "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",
-      "iv": "3DkaoLeQfFye2bjH"
+      "rank": 5,
+      "total": 5,
+      "totalScore": 130,
+      "expectedScore": 130,
+      "overallReview": "一题了不起，两题夸自己，垫底就垫底，天天好心情！",
+      "timeline": [
+        {
+          "time": "",
+          "plan": "",
+          "completion": ""
+        }
+      ],
+      "problems": [
+        {
+          "name": "比赛积分",
+          "link": "https://gdnoj.com/gmoj/#main/show/8981",
+          "score": 100,
+          "expected": 100,
+          "fullScore": 100,
+          "difficulty": "提高+/省选−",
+          "tags": [
+            "图论",
+            "数据结构",
+            "贪心"
+          ],
+          "isWeak": false,
+          "subScores": [
+            {
+              "actual": "",
+              "expected": "",
+              "full": "",
+              "desc": ""
+            }
+          ],
+          "notes": "做复杂了，有点浪费时间了。嗯……我好像说不了什么，确实是没想到更简单的做法，因为直接从一个比较复杂的角度入手了。总之是学到了。这个复杂一点的做法似乎维护了更多的信息，可以考虑出一个新的题目。",
+          "reflections": [
+            {
+              "name": "已知算法但不会灵活应用",
+              "rating": "not_worth"
+            }
+          ],
+          "fixed": "full"
+        },
+        {
+          "name": "Bearpairs",
+          "link": "https://gdnoj.com/gmoj/#main/show/8981",
+          "score": 20,
+          "expected": 35,
+          "fullScore": 100,
+          "difficulty": "NOI/NOI+/CTSC",
+          "tags": [
+            "DP",
+            "思维"
+          ],
+          "isWeak": false,
+          "subScores": [
+            {
+              "actual": "",
+              "expected": "",
+              "full": "",
+              "desc": ""
+            }
+          ],
+          "notes": "一直在做特殊性质，没有考虑到分析性质。有时候无法下手时应该分析一下性质的，但是分析性质应当晚于直觉思考",
+          "reflections": [
+            {
+              "name": "思路方向错误",
+              "rating": "not_worth"
+            }
+          ],
+          "fixed": "full"
+        },
+        {
+          "name": "修整树木",
+          "link": "https://gdnoj.com/gmoj/#main/show/8983",
+          "score": 10,
+          "expected": 10,
+          "fullScore": 10,
+          "difficulty": "NOI/NOI+/CTSC",
+          "tags": [
+            "DP",
+            "数学",
+            "线性规划"
+          ],
+          "isWeak": false,
+          "subScores": [
+            {
+              "actual": "",
+              "expected": "",
+              "full": "",
+              "desc": ""
+            }
+          ],
+          "notes": "我一直以来都是用矩阵法进行对偶的，结果这道题真的太复杂了，矩阵法真的没法下手了。应该用形式化的方法，考虑找时间整理为文字。\n\n真的一眼对偶，对偶完也是很好做的形式。",
+          "reflections": [
+            {
+              "name": "已知算法但不会灵活应用",
+              "rating": "not_worth"
+            }
+          ],
+          "fixed": "full"
+        }
+      ],
+      "reflections": [
+        {
+          "name": "发呆",
+          "rating": "not_worth"
+        },
+        {
+          "name": "前期节奏过慢",
+          "rating": "not_worth"
+        }
+      ]
     },
     {
       "date": "2026-06-23",
@@ -157,7 +302,6 @@
           "tags": [
             "模拟"
           ],
-          "errorTypes": [],
           "isWeak": false,
           "subScores": [
             {
@@ -168,7 +312,13 @@
             }
           ],
           "notes": "洛谷好像叫 wyb，我代码实现能力一向没有问题。",
-          "reflection": ""
+          "reflections": [
+            {
+              "name": "实现细节错误",
+              "rating": "unsure"
+            }
+          ],
+          "fixed": "full"
         },
         {
           "name": "放球",
@@ -181,7 +331,6 @@
             "DP",
             "数学"
           ],
-          "errorTypes": [],
           "isWeak": false,
           "subScores": [
             {
@@ -192,7 +341,13 @@
             }
           ],
           "notes": "有点失败，没能够想到拆成钦定，然后二项式反演即可，概率也是可以从恰好拆成至少的！用到的是拒绝采样的想法，如果某一次选择了钦定外的元素，就当作什么都没有发生，那么概率就相当于只和钦定比它慢的有关，于是可以拆。",
-          "reflection": ""
+          "reflections": [
+            {
+              "name": "数学推导不足",
+              "rating": "not_worth"
+            }
+          ],
+          "fixed": "full"
         },
         {
           "name": "建树",
@@ -205,7 +360,6 @@
             "数据结构",
             "贪心"
           ],
-          "errorTypes": [],
           "isWeak": false,
           "subScores": [
             {
@@ -216,7 +370,14 @@
             }
           ],
           "notes": "神题，太牛了，洛谷应该叫 P10770 「CROI · R2」夏风与树。",
-          "reflection": ""
+          "reflections": [],
+          "fixed": "full"
+        }
+      ],
+      "reflections": [
+        {
+          "name": "前期节奏过慢",
+          "rating": "unsure"
         }
       ]
     },
@@ -249,7 +410,6 @@
             "博弈论",
             "性质"
           ],
-          "errorTypes": [],
           "isWeak": false,
           "subScores": [
             {
@@ -266,7 +426,13 @@
             }
           ],
           "notes": "感觉直接推一推最后就可以发现了，从 n=m 入手即可。开始做就很简单了。\n\n就是时间不够导致的",
-          "reflection": ""
+          "reflections": [
+            {
+              "name": "暴力/部分分策略失误",
+              "rating": "not_worth"
+            }
+          ],
+          "fixed": "full"
         },
         {
           "name": "解离法",
@@ -278,7 +444,6 @@
           "tags": [
             "DP"
           ],
-          "errorTypes": [],
           "isWeak": false,
           "subScores": [
             {
@@ -289,7 +454,13 @@
             }
           ],
           "notes": "感觉也是打打表就可以发现了，虽然证明有点难。再说了，就算不会，套一个 DFA 也可以做啊！怎么没想到。",
-          "reflection": ""
+          "reflections": [
+            {
+              "name": "暴力/部分分策略失误",
+              "rating": "not_worth"
+            }
+          ],
+          "fixed": "full"
         },
         {
           "name": "风结",
@@ -302,7 +473,6 @@
             "图论",
             "DAG 链剖分"
           ],
-          "errorTypes": [],
           "isWeak": false,
           "subScores": [
             {
@@ -313,11 +483,37 @@
             }
           ],
           "notes": "板子题，但是写的有点久了。很多地方倍增都可以写的更简单。",
-          "reflection": ""
+          "reflections": [
+            {
+              "name": "单题投入过久",
+              "rating": "not_worth"
+            },
+            {
+              "name": "已知算法但不会灵活应用",
+              "rating": "unsure"
+            }
+          ],
+          "fixed": "full"
+        }
+      ],
+      "reflections": [
+        {
+          "name": "开题顺序不当",
+          "rating": "not_worth"
+        },
+        {
+          "name": "放弃不及时",
+          "rating": "not_worth"
+        },
+        {
+          "name": "前期节奏过慢",
+          "rating": "not_worth"
+        },
+        {
+          "name": "时间分配不合理",
+          "rating": "not_worth"
         }
       ]
     }
-  ],
-  "verifier": "249d304d8a6a6e602d4b94a3591a9d58547d4b0a3293be03b2f009ee2c50a94b",
-  "salt": "HEEnLs1WSZcNO43QUilfvA=="
+  ]
 }
