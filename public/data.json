@@ -93,7 +93,7 @@
           "reflections": [
             {
               "name": "数学推导不足",
-              "rating": "worth"
+              "rating": "unsure"
             }
           ],
           "fixed": "no"
@@ -141,7 +141,7 @@
       "reflections": [
         {
           "name": "单题投入过久",
-          "rating": "worth"
+          "rating": "unsure"
         },
         {
           "name": "前期节奏过慢",
