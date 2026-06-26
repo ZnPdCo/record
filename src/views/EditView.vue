@@ -41,7 +41,6 @@
             <SuiFormField label="排名" v-model.number="currentContest.rank" type="number" />
             <SuiFormField label="总人数" v-model.number="currentContest.total" type="number" />
             <SuiFormField label="总分" v-model.number="currentContest.totalScore" type="number" />
-            <SuiFormField label="期望得分" v-model.number="currentContest.expectedScore" type="number" />
           </SuiFormGroup>
           <div class="field">
             <label>总体回顾</label>
@@ -112,7 +111,6 @@
             </SuiFormGroup>
             <SuiFormGroup widths="equal">
               <SuiFormField label="得分" v-model.number="p.score" type="number" />
-              <SuiFormField label="期望得分" v-model.number="p.expected" type="number" />
               <SuiFormField label="满分" v-model.number="p.fullScore" type="number" />
               <div class="field">
                 <label>难度</label>
@@ -351,7 +349,7 @@ function selectContest(idx) {
 function newContest() {
   var c = {
     date: '', name: '', link: '', rank: 0, total: 0,
-    totalScore: 0, expectedScore: 0, overallReview: '',
+    totalScore: 0, overallReview: '',
     reflections: [],
     timeline: [{time: '', plan: '', completion: ''}],
     problems: []
@@ -380,7 +378,7 @@ function removeTLRow(ti) {
 function addProblem() {
   if (!currentContest.value) return
   currentContest.value.problems.push({
-    name: '', link: '', score: 0, expected: 0, fullScore: 0,
+    name: '', link: '', score: 0, fullScore: 0,
     difficulty: '暂无评定', tags: [], reflections: [], isWeak: false, fixed: 'no',
     subScores: [{actual: '', expected: '', full: '', desc: ''}],
     notes: ''

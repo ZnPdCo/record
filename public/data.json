@@ -7,7 +7,6 @@
       "rank": 19,
       "total": 50,
       "totalScore": 140,
-      "expectedScore": 140,
       "overallReview": "第一题做太久了，导致没怎么花时间在后面两题。怎么说呢，感觉第三题应当可以拿到更多分的，因为继续想下去肯定可以做到更多双射，得到 50 pts，进而第二部分获得更多分。\n\n然后晚上改题太腐败了，完全没在改题啊，应该先改第三题的。算了，反正这种题不改就不改，我都知道怎么一回事了，不改就不改，好心情最重要！",
       "timeline": [
         {
@@ -41,7 +40,6 @@
           "name": "音游",
           "link": "https://www.xinyoudui.com/ac/contest/7450103E0000B9E08E7A1B/problem/45760",
           "score": 100,
-          "expected": 100,
           "fullScore": 100,
           "difficulty": "省选/NOI−",
           "tags": [
@@ -75,7 +73,6 @@
           "name": "最小公倍数",
           "link": "https://www.xinyoudui.com/ac/contest/7450103E0000B9E08E7A1B/problem/45761",
           "score": 4,
-          "expected": 4,
           "fullScore": 100,
           "difficulty": "NOI/NOI+/CTSC",
           "tags": [
@@ -105,7 +102,6 @@
           "name": "树形",
           "link": "https://www.xinyoudui.com/ac/contest/7450103E0000B9E08E7A1B/problem/45762",
           "score": 36,
-          "expected": 50,
           "fullScore": 100,
           "difficulty": "NOI/NOI+/CTSC",
           "tags": [
@@ -164,7 +160,6 @@
       "rank": 5,
       "total": 5,
       "totalScore": 130,
-      "expectedScore": 130,
       "overallReview": "一题了不起，两题夸自己，垫底就垫底，天天好心情！",
       "timeline": [
         {
@@ -178,7 +173,6 @@
           "name": "比赛积分",
           "link": "https://gdnoj.com/gmoj/#main/show/8981",
           "score": 100,
-          "expected": 100,
           "fullScore": 100,
           "difficulty": "提高+/省选−",
           "tags": [
@@ -208,7 +202,6 @@
           "name": "Bearpairs",
           "link": "https://gdnoj.com/gmoj/#main/show/8981",
           "score": 20,
-          "expected": 35,
           "fullScore": 100,
           "difficulty": "NOI/NOI+/CTSC",
           "tags": [
@@ -237,7 +230,6 @@
           "name": "修整树木",
           "link": "https://gdnoj.com/gmoj/#main/show/8983",
           "score": 10,
-          "expected": 10,
           "fullScore": 100,
           "difficulty": "NOI/NOI+/CTSC",
           "tags": [
@@ -282,7 +274,6 @@
       "rank": 14,
       "total": 50,
       "totalScore": 200,
-      "expectedScore": 200,
       "overallReview": "没啥问题，就是前面有点摆，注意力没太集中，写的有点慢了。",
       "timeline": [
         {
@@ -296,7 +287,6 @@
           "name": "超车",
           "link": "https://www.xinyoudui.com/ac/contest/7450103B5000B9E08E408F/problem/45757",
           "score": 100,
-          "expected": 100,
           "fullScore": 100,
           "difficulty": "提高+/省选−",
           "tags": [
@@ -324,7 +314,6 @@
           "name": "放球",
           "link": "https://www.xinyoudui.com/ac/contest/7450103B5000B9E08E408F/problem/45758",
           "score": 75,
-          "expected": 75,
           "fullScore": 100,
           "difficulty": "省选/NOI−",
           "tags": [
@@ -353,7 +342,6 @@
           "name": "建树",
           "link": "https://www.xinyoudui.com/ac/contest/7450103B5000B9E08E408F/problem/45759",
           "score": 25,
-          "expected": 25,
           "fullScore": 100,
           "difficulty": "NOI/NOI+/CTSC",
           "tags": [
@@ -388,7 +376,6 @@
       "rank": 46,
       "total": 57,
       "totalScore": 123,
-      "expectedScore": 123,
       "overallReview": "感觉这一场就是，全程冲 t3 啊，如果能够回去看一下 t1 t2 早就 200pts 了，但是就是冲 t3，那过了又如何呢？",
       "timeline": [
         {
@@ -402,7 +389,6 @@
           "name": "永除塔扉",
           "link": "https://www.xinyoudui.com/ac/contest/745010385000B9E08E4054/problem/45756",
           "score": 15,
-          "expected": 15,
           "fullScore": 100,
           "difficulty": "普及+/提高",
           "tags": [
@@ -438,7 +424,6 @@
           "name": "解离法",
           "link": "https://www.xinyoudui.com/ac/contest/745010385000B9E08E4054/problem/45755",
           "score": 8,
-          "expected": 8,
           "fullScore": 100,
           "difficulty": "普及+/提高",
           "tags": [
@@ -466,7 +451,6 @@
           "name": "风结",
           "link": "https://www.xinyoudui.com/ac/contest/745010385000B9E08E4054/problem/45754",
           "score": 100,
-          "expected": 100,
           "fullScore": 100,
           "difficulty": "NOI/NOI+/CTSC",
           "tags": [

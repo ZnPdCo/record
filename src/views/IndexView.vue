@@ -67,7 +67,7 @@
           <div>
             <span class="meta-date">{{ c.date || '' }}</span>
             <span class="meta-name">{{ c.name || '未命名' }}</span>
-            <span v-if="c.totalScore || c.expectedScore" class="meta-item">得分 {{ c.totalScore ?? 0 }}/{{ c.expectedScore ?? 0 }}</span>
+            <span v-if="c.totalScore" class="meta-item">得分 {{ c.totalScore }}</span>
             <span v-if="c.rank || c.total" class="meta-item">排名 {{ c.rank ?? '?' }}/{{ c.total ?? '?' }}</span>
           </div>
           <SuiIcon name="chevron right" :class="{ rotated: isOpen(c) }" />
